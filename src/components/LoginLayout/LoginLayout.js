@@ -1,6 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-
 import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
 
 const loginLayout = (props) => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
+import Routes from './routes/Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
-  return (
-    <Register></Register>
-  );
+  return <Router>
+    <Routes />
+    </Router>
 }
 
 export default App;

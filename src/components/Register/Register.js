@@ -1,8 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import LoginLayout from '../LoginLayout/LoginLayout';
-
-import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
+import {Link} from 'react-router-dom';
 
 const register = () => {
   return <LoginLayout>
@@ -28,7 +27,9 @@ const register = () => {
         Create an account
       </Button>
     </form>
-    <p>Already have an account? <a>Sign in</a></p>
+    <p>Already have an account?
+      <Link to="/"> Sign in</Link>
+    </p>
   </LoginLayout>
 }
 

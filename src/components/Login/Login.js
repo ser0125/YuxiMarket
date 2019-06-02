@@ -1,8 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
 import './Login.css';
-
-import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
 import LoginLayout from '../LoginLayout/LoginLayout';
 
 const login = () => {
@@ -15,13 +14,15 @@ const login = () => {
       </div>
       <div className="form-control">
         <label htmlFor="password">Password (Required)</label>
-        <input name='password' type="password"/>
+        <input name='password' type="password" />
       </div>
-        <Button className="form-button" variant="contained" color="primary" type="submit">
+      <Button className="form-button" variant="contained" color="primary" type="submit">
         Login
       </Button>
     </form>
-    <p>Don't have an account? <a>Create a new account</a></p>
+    <p>Don't have an account?
+      <Link to="/sign-up"> Create a new account</Link>
+    </p>
   </LoginLayout>
 }
 
