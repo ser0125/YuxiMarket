@@ -9,11 +9,11 @@ const login = () => {
     <h2 className="form-signin-heading">Sign in to YuxiMarket</h2>
     <form className="form-signin">
       <div className="form-control">
-        <label htmlFor="email">Email (Required)</label>
+        <label className="required" htmlFor="email">Email</label>
         <input name='email' type="email" />
       </div>
       <div className="form-control">
-        <label htmlFor="password">Password (Required)</label>
+        <label className="required" htmlFor="password">Password</label>
         <input name='password' type="password" />
       </div>
       <Button className="form-button" variant="contained" color="primary" type="submit">

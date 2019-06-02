@@ -1,4 +1,5 @@
 import React from 'react';
+import './LoginLayout.css';
 import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
 
 const loginLayout = (props) => {
