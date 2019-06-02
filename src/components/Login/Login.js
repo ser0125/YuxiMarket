@@ -3,10 +3,10 @@ import Button from '@material-ui/core/Button';
 import './Login.css';
 
 import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
+import LoginLayout from '../LoginLayout/LoginLayout';
 
 const login = () => {
-  return <div className="wrapper">
-    <img src={yuxiLogo} alt='yuxi Logo'/>
+  return <LoginLayout>
     <h2 className="form-signin-heading">Sign in to YuxiMarket</h2>
     <form className="form-signin">
       <div className="form-control">
@@ -22,8 +22,7 @@ const login = () => {
       </Button>
     </form>
     <p>Don't have an account? <a>Create a new account</a></p>
-    
-  </div>
+  </LoginLayout>
 }
 
 export default login;
