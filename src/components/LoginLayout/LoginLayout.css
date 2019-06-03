@@ -38,7 +38,7 @@
   padding: 6px 8px
 }
 
-button.form-button{
+a.form-button{
   width: 100%;
   margin-top: 20px;
   background: linear-gradient(60deg,#98288f,#d88ee0,#8785f2,#00fff7);

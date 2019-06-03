@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCategories } from '../../../services/api';
+import NavBar from './Navbar';
 class Home extends React.Component {
   state = {
     categories: []
@@ -13,7 +14,7 @@ class Home extends React.Component {
   }
   render () {
     return <div className="wrapper">
-     {this.state.categories.map(category => <div>{category.name}</div>)}
+      <NavBar />
       </div>
   }
 }

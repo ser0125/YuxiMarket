@@ -16,7 +16,13 @@ const login = () => {
         <label className="required" htmlFor="password">Password</label>
         <input name='password' type="password" />
       </div>
-      <Button className="form-button" variant="contained" color="primary" type="submit">
+      <Button 
+      className="form-button" 
+      variant="contained" 
+      color="primary" 
+      component={Link}
+      to="/home"
+      type="submit">
         Login
       </Button>
     </form>
