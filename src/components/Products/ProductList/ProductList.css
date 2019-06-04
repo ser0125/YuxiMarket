@@ -1,0 +1,44 @@
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-list {
+  height: 100%;
+  padding-top: 70px;
+  width: 100%;
+}
+
+.card-category {
+  flex: 0 0 30%;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid lightskyblue;
+  color: #98288f;
+}
+.card-category:hover {
+  background-color: #98288f;
+  color: #fff;
+}
+
+.icon-list {
+  font-size: 80px;
+}
+
+.home-container { 
+  background-color: #faf7ff;
+}
+
+p {
+  color: #827171;
+}
+.card-category:hover p{
+  color: #fff;
+}
+
+h1 {
+  color: #666;
+  padding-left: 50px;
+}
