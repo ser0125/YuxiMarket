@@ -4,4 +4,8 @@ const API_URL = 'https://api.mercadolibre.com';
 
 export const getCategories = () =>
   axios.get(`${API_URL}/sites/MCO/categories`)
-  .then((response) => response.data)
+  .then(response => response.data)
+
+export const getProducts = (categoryId) =>
+  axios.get(`${API_URL}/sites/MCO/search?category=${categoryId}`)
+  .then(response => response.data)

@@ -27,18 +27,14 @@
   font-size: 80px;
 }
 
-.home-container { 
-  background-color: #faf7ff;
-}
-
-p {
+.card-category p {
   color: #827171;
 }
 .card-category:hover p{
   color: #fff;
 }
 
-h1 {
+.container-list h1 {
   color: #666;
   padding-left: 50px;
 }
