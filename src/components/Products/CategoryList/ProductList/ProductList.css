@@ -1,0 +1,8 @@
+.container-products {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.title-products {
+  text-align: center;
+}

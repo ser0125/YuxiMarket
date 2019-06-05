@@ -2,12 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.container-list {
-  height: 100%;
-  padding-top: 70px;
-  width: 100%;
+  padding-bottom: 50px;
 }
 
 .card-category {
@@ -17,6 +12,7 @@
   background-color: white;
   border: 1px solid lightskyblue;
   color: #98288f;
+  padding-top: 20px;
 }
 .card-category:hover {
   background-color: #98288f;

@@ -1,9 +1,8 @@
 import React from 'react';
 import { getCategories } from '../../../services/api';
-import NavBar from './Navbar';
 import CategoryList from '../CategoryList/CategoryList';
 import { addIcon } from '../../../utils/addIcon';
-import './Home.css';
+import MainLayout from '../MainLayout/MainLayout';
 
 class Home extends React.Component {
   state = {
@@ -22,10 +21,9 @@ class Home extends React.Component {
 
   render() {
     const categoriesExist = this.state.categories.length > 0;
-    return <div className="home-container">
-      <NavBar />
-        {categoriesExist ? <CategoryList {...this.props} categories={this.state.categories} /> : null}
-    </div>
+    return <MainLayout>
+      {categoriesExist ? <CategoryList {...this.props} categories={this.state.categories} /> : null}
+    </MainLayout>
   }
 }
 

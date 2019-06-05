@@ -36,7 +36,7 @@ function Navbar() {
           indicatorColor="primary"
           classes={{ indicator: classes.Indicator }}>
           <Tab label="Home" component={Link} to="/home" />
-          <Tab label="About" />
+          <Tab label="About" component={Link} to="/about"  />
           <Tab label="Sign Out"
             className={classes.TabSignOut}
             component={Link} to="/" />
