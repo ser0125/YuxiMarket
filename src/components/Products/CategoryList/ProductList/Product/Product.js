@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const Product = (props) => {
   const classes = useStyles();
   return <Card className={classes.productCard}>
-    <CardActionArea className={classes.cardArea}>
+    <CardActionArea className={classes.cardArea} onClick={props.selectProduct}>
       <CardContent className={classes.cardContent}>
         <div class='image-container'>
           <img class="product-thumbnail" src={props.product.thumbnail} alt="product" />

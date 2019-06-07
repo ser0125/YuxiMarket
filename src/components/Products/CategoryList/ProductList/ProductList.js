@@ -19,11 +19,15 @@ class ProductList extends React.Component {
     }))
   }
 
+  selectProduct(id) {
+    this.props.history.push(`/product/${id}`);
+  }
+
   render() {
     return <MainLayout>
       <h1 className='title-products'>Publicaciones destacadas</h1>
       <div className='container-products'>
-        {this.state.products.map(product => <Product key={product.id} product={product}></Product>)}
+        {this.state.products.map(product => <Product key={product.id} product={product} selectProduct={()=> this.selectProduct(product.id)}></Product>)}
       </div>
     </MainLayout>
   }
