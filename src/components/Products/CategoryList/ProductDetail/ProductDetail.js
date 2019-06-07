@@ -45,7 +45,9 @@ class ProductDetail extends Component {
             }
           </div>
           <div className='img-selected'>
+            <div className='img-selected-container'>
             <img src={this.state.activeImage}></img>
+            </div>
           </div>
         </div>
         <div className='info-product'>
