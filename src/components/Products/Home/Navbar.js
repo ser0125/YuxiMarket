@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 
@@ -36,7 +37,8 @@ function Navbar() {
           indicatorColor="primary"
           classes={{ indicator: classes.Indicator }}>
           <Tab label="Home" component={Link} to="/home" />
-          <Tab label="About" component={Link} to="/about"  />
+          <Tab label="About" component={Link} to="/about" />
+          <Tab icon={<ShoppingCart />} aria-label="Shopping-cart" />
           <Tab label="Sign Out"
             className={classes.TabSignOut}
             component={Link} to="/" />

@@ -5,19 +5,21 @@
 
 .img-container {
   padding: 2px;
-  border: 1px solid #ddd;
+  border-right: 1px solid lightslategrey;
+  border-bottom: 1px solid lightslategrey;
   width: 90px;
-  height: 90px;
+  height: 95px;
   text-align: center;
   overflow: hidden;
 }
 .gallery-container {
   flex: 0 0 65%;
   display: flex;
+  border-right: 1px solid lightslategrey;
 }
 .container-detail {
   display: flex;
-  border: 1px solid #ddd;
+  border: 1px solid lightslategrey;
   background-color: #fff;
 }
 
@@ -28,7 +30,13 @@
 }
 
 .info-product {
-  flex: 0 0 35%;
+  flex: 0 0 32%;
+  padding: 20px;
+}
+
+.price-product {
+  font-size: 44px;
+  font-weight: 700;
 }
 
 .img-selected {

@@ -4,6 +4,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
+import { formatNumber } from '../../../../../utils/decimalSeparation';
+import { Button, CardActions } from '@material-ui/core';
 const useStyles = makeStyles({
   productCard: {
     flex: '0 0 15%',
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
     flexWrap: 'wrap'
   },
   cardArea: {
-    height: '100%'
+    height: '85%'
   }
 });
 
@@ -27,10 +29,20 @@ const Product = (props) => {
         <div class='image-container'>
           <img class="product-thumbnail" src={props.product.thumbnail} alt="product" />
         </div>
-        <p>${props.product.price}</p>
+        <p>${formatNumber(props.product.price)}</p>
         <p>{props.product.title}</p>
       </CardContent>
     </CardActionArea>
+    <CardActions>
+      <Button className="product-button"
+        variant="contained"
+        fullWidth={true}
+        color="primary"
+        type="submit"
+        size="small" >
+        Agregar al carrito
+        </Button>
+    </CardActions>
   </Card>
 }
 

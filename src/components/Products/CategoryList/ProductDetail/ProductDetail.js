@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import MainLayout from '../../MainLayout/MainLayout';
 import { getProductDetail } from '../../../../services/api';
 import './ProductDetail.css';
+import { formatNumber } from '../../../../utils/decimalSeparation';
 
 class ProductDetail extends Component {
   state = {
@@ -17,7 +18,8 @@ class ProductDetail extends Component {
       .then(res => this.setState({
         productDetail: res,
         pictures: res.pictures.slice(0, 6),
-        activeImage: res.pictures[0].url
+        activeImage: res.pictures[0].url,
+        price: formatNumber(res.price)
       }))
   }
 
@@ -43,6 +45,7 @@ class ProductDetail extends Component {
                 })
                 : null
             }
+          
           </div>
           <div className='img-selected'>
             <div className='img-selected-container'>
@@ -52,7 +55,7 @@ class ProductDetail extends Component {
         </div>
         <div className='info-product'>
           <h1>{this.state.productDetail.title}</h1>
-          <p>${this.state.productDetail.price}</p>
+          <p className="price-product">${this.state.price}</p>
           <Button
             className="form-button"
             variant="contained"
