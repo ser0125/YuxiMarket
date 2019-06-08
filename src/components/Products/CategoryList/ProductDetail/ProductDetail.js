@@ -23,8 +23,8 @@ class ProductDetail extends Component {
       }))
   }
 
-  
-   selectImage = (event) => {
+
+  selectImage = (event) => {
     this.setState({
       activeImage: event.target.src
     })
@@ -45,11 +45,10 @@ class ProductDetail extends Component {
                 })
                 : null
             }
-          
           </div>
           <div className='img-selected'>
             <div className='img-selected-container'>
-            <img src={this.state.activeImage}></img>
+              <img src={this.state.activeImage} alt="selected"></img>
             </div>
           </div>
         </div>

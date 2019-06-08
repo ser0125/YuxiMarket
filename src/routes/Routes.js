@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from '../components/Login/Login';
 import { Route } from 'react-router-dom';
-import Register from '../components/Register/Register';
+import Register from '../containers/Register';
 import Home from '../components/Products/Home/Home';
 import ProductList from '../components/Products/CategoryList/ProductList/ProductList';
 import About from '../components/Products/About/About';
