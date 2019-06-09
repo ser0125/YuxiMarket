@@ -1,21 +1,15 @@
 
 import React from 'react';
-import { getProducts } from '../../../../services/api';
 import Product from './Product/Product';
 import './ProductList.css';
 class ProductList extends React.Component {
 
-  state = {
-    products: []
-  }
-
   componentDidMount() {
-    getProducts(this.props.match.params.id).then((res => {
-      const resFilter = res.results.slice(0, 18);
-      this.setState({
-        products: resFilter
-      });
-    }))
+    const { products } = this.props;
+    console.log(products);
+    if(products.data.length === 0) {
+      this.props.fetchProducts(this.props.match.params.id);
+    }
   }
 
   selectProduct(id) {
@@ -23,10 +17,11 @@ class ProductList extends React.Component {
   }
 
   render() {
+    const { products } = this.props;
     return <React.Fragment>
       <h1 className='title-products'>Publicaciones destacadas</h1>
       <div className='container-products'>
-        {this.state.products.map(product => <Product key={product.id} product={product} selectProduct={()=> this.selectProduct(product.id)}></Product>)}
+        {products.data.map(product => <Product key={product.id} product={product} selectProduct={()=> this.selectProduct(product.id)}></Product>)}
       </div>
     </React.Fragment>
   }

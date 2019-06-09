@@ -1,7 +1,6 @@
 import React from 'react';
-import { getCategories } from '../../../services/api';
 import CategoryList from '../CategoryList/CategoryList';
-import { addIcon } from '../../../utils/addIcon';
+
 
 class Home extends React.Component {
   componentDidMount() {

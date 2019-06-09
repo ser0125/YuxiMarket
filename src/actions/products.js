@@ -1,7 +1,9 @@
 
-import { REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS } from './actionType';
-import { getProducts } from '../services/api';
-import { addIcon } from '../utils/addIcon';
+import {
+  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS,
+  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT
+} from './actionType';
+import { getProducts, getProductDetail } from '../services/api';
 
 export const requestProducts = () => ({
   type: REQUEST_PRODUCTS,
@@ -17,13 +19,36 @@ export const catchProducts = (error) => ({
   payload: error,
 });
 
-export const fetchProducts = () => (dispatch) => {
+export const fetchProducts = (id) => (dispatch) => {
   dispatch(requestProducts())
-  getProducts()
-  .then((products) => {
-    const productsFilter = products.filter((value, index) => index % 2);
-    productsFilter.forEach(elem => addIcon(elem));
-    dispatch(receiveProducts(elem));
-  })
-  .catch((error) => dispatch(catchProducts(error)))
+  getProducts(id)
+    .then((products) => {
+      const resFilter = products.results.slice(0, 18);
+      dispatch(receiveProducts(resFilter));
+    })
+    .catch((error) => dispatch(catchProducts(error)))
+}
+
+
+export const requestProduct = () => ({
+  type: REQUEST_PRODUCT,
+});
+
+export const receiveProduct = (products) => ({
+  type: RECEIVE_PRODUCT,
+  payload: products,
+});
+
+export const catchProduct = (error) => ({
+  type: ERR_PRODUCT,
+  payload: error,
+});
+
+export const fetchProduct = () => (dispatch) => {
+  dispatch(requestProduct())
+  getProductDetail()
+    .then((products) => {
+      dispatch(receiveProduct(products));
+    })
+    .catch((error) => dispatch(catchProduct(error)))
 }
