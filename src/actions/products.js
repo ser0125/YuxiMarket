@@ -1,9 +1,10 @@
 
 import {
   REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS,
-  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT
+  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, SELECT_IMAGE
 } from './actionType';
 import { getProducts, getProductDetail } from '../services/api';
+import { formatNumber } from '../utils/decimalSeparation';
 
 export const requestProducts = () => ({
   type: REQUEST_PRODUCTS,
@@ -30,13 +31,22 @@ export const fetchProducts = (id) => (dispatch) => {
 }
 
 
+
+const massage = (product) => ({
+  productDetail: product,
+  pictures: product.pictures.slice(0, 6),
+  activeImage: product.pictures[0].url,
+  price: formatNumber(product.price)
+})
+
+
 export const requestProduct = () => ({
   type: REQUEST_PRODUCT,
 });
 
-export const receiveProduct = (products) => ({
+export const receiveProduct = (product) => ({
   type: RECEIVE_PRODUCT,
-  payload: products,
+  payload: product,
 });
 
 export const catchProduct = (error) => ({
@@ -44,11 +54,17 @@ export const catchProduct = (error) => ({
   payload: error,
 });
 
-export const fetchProduct = () => (dispatch) => {
+export const selectImage = (activeImage) => ({
+  type: SELECT_IMAGE,
+  payload: activeImage
+})
+
+export const fetchProduct = (id) => (dispatch) => {
   dispatch(requestProduct())
-  getProductDetail()
-    .then((products) => {
-      dispatch(receiveProduct(products));
+  getProductDetail(id)
+    .then((product) => {
+      const newProduct = massage(product)
+      dispatch(receiveProduct(newProduct));
     })
     .catch((error) => dispatch(catchProduct(error)))
 }

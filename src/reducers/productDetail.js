@@ -1,22 +1,27 @@
 import {
-  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS
+ SELECT_IMAGE, REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT
 } from '../actions/actionType';
 import initialState from './initialState';
 
-export default (state = initialState.products, action) => {
+export default (state = initialState.productDetail, action) => {
   switch (action.type) {
-    case REQUEST_PRODUCTS:
+    case SELECT_IMAGE:
+      return {
+        ...state,
+        ...action.payload
+      };
+    case REQUEST_PRODUCT:
       return {
         ...state,
         isFetching: true
       }
-    case RECEIVE_PRODUCTS:
+    case RECEIVE_PRODUCT:
       return {
         ...state,
         isFetching: false,
-        data: action.payload
+        ...action.payload
       }
-    case ERR_PRODUCTS:
+    case ERR_PRODUCT:
       return {
         ...state,
         isFetching: false,

@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom';
 import Register from '../containers/Register';
 import Home from '../containers/Home';
 import ProductList from '../containers/Products';
+import ProductDetail from '../containers/ProductDetail';
 import About from '../components/Products/About/About';
-import ProductDetail from '../components/Products/CategoryList/ProductDetail/ProductDetail';
 import PrivateRoute from '../enhancers/PrivateRoute';
 
 

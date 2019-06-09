@@ -13,3 +13,4 @@ export const ERR_PRODUCTS = 'ERR_PRODUCTS';
 export const REQUEST_PRODUCT = 'REQUEST_PRODUCT';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const ERR_PRODUCT = 'ERR_PRODUCT';
+export const SELECT_IMAGE = 'SELECT_IMAGE';

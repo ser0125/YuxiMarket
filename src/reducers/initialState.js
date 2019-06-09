@@ -10,6 +10,13 @@ export default {
       data: [],
       error: null,
   },
+  productDetail: {
+    isFetching: false,
+    productDetail: {},
+    pictures: [],
+    activeImage: '',
+    error: null,
+},
   users: {
     data: [],
   },
