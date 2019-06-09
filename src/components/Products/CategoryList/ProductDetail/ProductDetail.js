@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import MainLayout from '../../MainLayout/MainLayout';
 import { getProductDetail } from '../../../../services/api';
 import './ProductDetail.css';
 import { formatNumber } from '../../../../utils/decimalSeparation';
@@ -32,8 +31,7 @@ class ProductDetail extends Component {
 
   render() {
 
-    return <MainLayout>
-      <div className='container-detail'>
+    return <div className='container-detail'>
         <div className='gallery-container'>
           <div className='gallery-content'>
             {
@@ -64,7 +62,6 @@ class ProductDetail extends Component {
       </Button>
         </div>
       </div>
-    </MainLayout>
   }
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import './LoginLayout.css';
 import yuxiLogo from '../../assets/YUXI_LOGO_WHITE.svg';
+import Routes from '../../routes/Routes';
 
 const loginLayout = (props) => {
   return <div className="wrapper">
     <img src={yuxiLogo} alt='yuxi Logo'/>
-    {props.children}
+    <Routes />
   </div>
     }
   

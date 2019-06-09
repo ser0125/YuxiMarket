@@ -2,7 +2,6 @@ import React from 'react';
 import { getCategories } from '../../../services/api';
 import CategoryList from '../CategoryList/CategoryList';
 import { addIcon } from '../../../utils/addIcon';
-import MainLayout from '../MainLayout/MainLayout';
 
 class Home extends React.Component {
   state = {
@@ -21,9 +20,9 @@ class Home extends React.Component {
 
   render() {
     const categoriesExist = this.state.categories.length > 0;
-    return <MainLayout>
+    return <React.Fragment>
       {categoriesExist ? <CategoryList {...this.props} categories={this.state.categories} /> : null}
-    </MainLayout>
+      </React.Fragment>
   }
 }
 
