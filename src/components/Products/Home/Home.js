@@ -4,24 +4,19 @@ import CategoryList from '../CategoryList/CategoryList';
 import { addIcon } from '../../../utils/addIcon';
 
 class Home extends React.Component {
-  state = {
-    categories: []
-  }
   componentDidMount() {
-    getCategories().then((res => {
-      const resFilter = res.filter((value, index) => index % 2);
-      resFilter.forEach(elem => addIcon(elem));
-      this.setState({
-        categories: resFilter
-      });
-    }))
+    const {  categories } = this.props
+    if(categories.data.length === 0){
+      this.props.fetchCategories();
+    }
   }
 
 
   render() {
-    const categoriesExist = this.state.categories.length > 0;
+    const { categories } = this.props
+    const categoriesExist = !!categories && (categories.data.length > 0)
     return <React.Fragment>
-      {categoriesExist ? <CategoryList {...this.props} categories={this.state.categories} /> : null}
+      {categoriesExist ? <CategoryList {...this.props} categories={categories.data} /> : null}
       </React.Fragment>
   }
 }
