@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainLayout from '../components/Products/MainLayout/MainLayout';
-import LoginLayout from '../components/LoginLayout/LoginLayout';
+import MainLayout from './MainLayout/MainLayout';
+import LoginLayout from './LoginLayout/LoginLayout';
 
 const mapStateToProps = (state) => ({
   loginUser: state.loginUser,
 });
 
-const Layout = ({ component: Component, ...rest }) => {
+const Layout = ({  ...rest }) => {
   const { loginUser } = rest;
- return typeof (loginUser) !== 'undefined'
+ return !!Object.keys(loginUser).length
     ? <MainLayout />
     : <LoginLayout />
 }

@@ -11,7 +11,7 @@ const PrivateRoute =({ component: Component, ...rest }) => {
   return <Route 
       {...rest}
       render={(props) => {
-      return typeof(loginUser) !== 'undefined'
+      return !!Object.keys(loginUser).length
         ? <Component {...props} />
         : <Redirect
             to={{

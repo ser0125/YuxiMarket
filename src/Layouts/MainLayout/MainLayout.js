@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from '../Home/Navbar';
+import NavBar from './Navbar/Navbar';
 import './MainLayout.css';
-import Routes from '../../../routes/Routes';
+import Routes from '../../routes/Routes';
 
 const MainLayout = (props) => {
   return <div className="home-container">
