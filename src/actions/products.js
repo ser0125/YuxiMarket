@@ -6,6 +6,13 @@ import {
 import { getProducts, getProductDetail } from '../services/api';
 import { formatNumber } from '../utils/decimalSeparation';
 
+const massageProducts = (product) => ({
+  id: product.id,
+  title: product.title,
+  price: product.price,
+  thumbnail: product.thumbnail
+})
+
 export const clearOldProducts = () => ({
   type: CLEAR_OLD_PRODUCTS,
 });
@@ -28,15 +35,16 @@ export const fetchProducts = (id) => (dispatch) => {
   dispatch(requestProducts())
   getProducts(id)
     .then((products) => {
-      const resFilter = products.results.slice(0, 18);
-      dispatch(receiveProducts(resFilter));
+      const productsFilter = products.results.slice(0, 18);
+      const newProducts = productsFilter.map((product) => massageProducts(product))
+      dispatch(receiveProducts(newProducts));
     })
     .catch((error) => dispatch(catchProducts(error)))
 }
 
 
 
-const massage = (product) => ({
+const massageProduct = (product) => ({
   id: product.id,
   pictures: product.pictures.slice(0, 6),
   activeImage: product.pictures[0].url,
@@ -71,7 +79,7 @@ export const fetchProduct = (id) => (dispatch) => {
   dispatch(requestProduct())
   getProductDetail(id)
     .then((product) => {
-      const newProduct = massage(product)
+      const newProduct = massageProduct(product)
       dispatch(receiveProduct(newProduct));
     })
     .catch((error) => dispatch(catchProduct(error)))
