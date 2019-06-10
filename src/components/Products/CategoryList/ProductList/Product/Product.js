@@ -26,8 +26,8 @@ const Product = (props) => {
   return <Card className={classes.productCard}>
     <CardActionArea className={classes.cardArea} onClick={props.selectProduct}>
       <CardContent className={classes.cardContent}>
-        <div class='image-container'>
-          <img class="product-thumbnail" src={props.product.thumbnail} alt="product" />
+        <div className='image-container'>
+          <img className="product-thumbnail" src={props.product.thumbnail} alt="product" />
         </div>
         <p>${formatNumber(props.product.price)}</p>
         <p>{props.product.title}</p>

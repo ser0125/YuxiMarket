@@ -25,7 +25,7 @@ class ProductDetail extends Component {
             {
               Object.keys(productDetail).length ?
               productDetail.pictures.map(pic => {
-                  return <div className='img-container' key={pic.id} onClick={this.props.selectImage}>
+                  return <div className='img-container' key={pic.id} onClick={()=>this.props.selectImage(pic.url)}>
                     <img className='product-detail-thumbnail' src={pic.url} alt='product'></img>
                   </div>
                 })

@@ -37,10 +37,11 @@ export const fetchProducts = (id) => (dispatch) => {
 
 
 const massage = (product) => ({
-  productDetail: product,
+  id: product.id,
   pictures: product.pictures.slice(0, 6),
   activeImage: product.pictures[0].url,
-  price: formatNumber(product.price)
+  price: formatNumber(product.price),
+  title: product.title
 })
 
 export const clearOldProduct = () => ({

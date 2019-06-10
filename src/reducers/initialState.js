@@ -12,7 +12,8 @@ export default {
   },
   productDetail: {
     isFetching: false,
-    productDetail: {},
+    id: '',
+    title: '',
     pictures: [],
     activeImage: '',
     error: null,

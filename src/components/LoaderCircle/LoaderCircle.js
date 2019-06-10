@@ -25,7 +25,7 @@ export default function LoaderCircle() {
   }, []);
 
   return (
-    <div class="load-container">
+    <div className="load-container">
       <CircularProgress className={classes.progress} variant="determinate" value={progress} />
     </div>
   );

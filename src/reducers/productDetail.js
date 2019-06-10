@@ -8,7 +8,7 @@ export default (state = initialState.productDetail, action) => {
     case SELECT_IMAGE:
       return {
         ...state,
-        ...action.payload
+        activeImage: action.payload
       };
     case REQUEST_PRODUCT:
       return {
