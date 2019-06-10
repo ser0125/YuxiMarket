@@ -1,10 +1,14 @@
 
 import {
-  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS,
-  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, SELECT_IMAGE
+  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS, CLEAR_OLD_PRODUCTS,
+  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, SELECT_IMAGE, CLEAR_OLD_PRODUCT
 } from './actionType';
 import { getProducts, getProductDetail } from '../services/api';
 import { formatNumber } from '../utils/decimalSeparation';
+
+export const clearOldProducts = () => ({
+  type: CLEAR_OLD_PRODUCTS,
+});
 
 export const requestProducts = () => ({
   type: REQUEST_PRODUCTS,
@@ -39,6 +43,9 @@ const massage = (product) => ({
   price: formatNumber(product.price)
 })
 
+export const clearOldProduct = () => ({
+  type: CLEAR_OLD_PRODUCT,
+})
 
 export const requestProduct = () => ({
   type: REQUEST_PRODUCT,

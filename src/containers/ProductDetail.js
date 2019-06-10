@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchProduct, selectImage} from '../actions/products';
+import { fetchProduct, selectImage, clearOldProduct} from '../actions/products';
 import ProductDetail from '../components/Products/CategoryList/ProductDetail/ProductDetail';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchProduct,
-  selectImage
+  selectImage,
+  clearOldProduct
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

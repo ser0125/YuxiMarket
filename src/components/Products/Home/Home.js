@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryList from '../CategoryList/CategoryList';
-
+import LoaderCircle from '../../LoaderCircle/LoaderCircle';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class Home extends React.Component {
     const { categories } = this.props
     const categoriesExist = !!categories && (categories.data.length > 0)
     return <React.Fragment>
-      {categoriesExist ? <CategoryList {...this.props} categories={categories.data} /> : null}
+      {categoriesExist ? <CategoryList {...this.props} categories={categories.data} /> : <LoaderCircle />}
       </React.Fragment>
   }
 }

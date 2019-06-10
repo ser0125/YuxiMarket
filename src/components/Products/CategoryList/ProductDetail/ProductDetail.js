@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import './ProductDetail.css';
+import LoaderCircle from '../../../LoaderCircle/LoaderCircle';
 
 class ProductDetail extends Component {
 
@@ -9,9 +10,16 @@ class ProductDetail extends Component {
       this.props.fetchProduct(this.props.match.params.id);
   }
 
+  componentWillUnmount(){
+    this.props.clearOldProduct();
+  }
+  compon
+
   render() {
     const { productDetail } = this.props
-    return <div className='container-detail'>
+    const productDetailExist = !!productDetail.pictures.length;
+    return productDetailExist
+    ? <div className='container-detail'>
         <div className='gallery-container'>
           <div className='gallery-content'>
             {
@@ -42,6 +50,7 @@ class ProductDetail extends Component {
       </Button>
         </div>
       </div>
+      :  <LoaderCircle />
   }
 }
 

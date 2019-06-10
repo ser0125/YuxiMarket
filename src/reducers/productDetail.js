@@ -1,5 +1,5 @@
 import {
- SELECT_IMAGE, REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT
+  SELECT_IMAGE, REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, CLEAR_OLD_PRODUCT
 } from '../actions/actionType';
 import initialState from './initialState';
 
@@ -27,6 +27,8 @@ export default (state = initialState.productDetail, action) => {
         isFetching: false,
         error: action.payload
       }
+      case CLEAR_OLD_PRODUCT:
+          return initialState.productDetail
     default:
       return state
   }

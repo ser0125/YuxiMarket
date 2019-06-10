@@ -1,5 +1,7 @@
 .home-container { 
   background-color: #faf7ff;
+  height: 100vh;
+  width: 100%;
 }
 
 .container {

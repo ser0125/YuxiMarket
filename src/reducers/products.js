@@ -1,5 +1,5 @@
 import {
-  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS
+  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS, CLEAR_OLD_PRODUCTS
 } from '../actions/actionType';
 import initialState from './initialState';
 
@@ -22,6 +22,8 @@ export default (state = initialState.products, action) => {
         isFetching: false,
         error: action.payload
       }
+      case CLEAR_OLD_PRODUCTS:
+          return initialState.products
     default:
       return state
   }
