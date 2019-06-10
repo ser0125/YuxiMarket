@@ -1,3 +1,15 @@
+html, .root {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  min-height: 100vh;
+}
+.button-label {
+  font-family: 'Fredoka One', cursive !important;
+}
+button {
+  font-family: 'ZCOOL KuaiLe', cursive !important;
 }

@@ -42,7 +42,7 @@ class ProductDetail extends Component {
           <h1>{productDetail.title}</h1>
           <p className="price-product">${productDetail.price}</p>
           <Button
-            className="form-button"
+            className="form-button button-label"
             variant="contained"
             color="primary"
             type="submit">

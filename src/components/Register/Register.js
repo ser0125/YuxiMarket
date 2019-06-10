@@ -59,7 +59,7 @@ const Register = (props) => {
         )}
       </div>
       <Button
-        className="form-button"
+        className="form-button button-label"
         variant="contained"
         color="primary"
         type="submit">

@@ -30,11 +30,11 @@ const Product = (props) => {
           <img className="product-thumbnail" src={props.product.thumbnail} alt="product" />
         </div>
         <p>${formatNumber(props.product.price)}</p>
-        <p>{props.product.title}</p>
+        <p className='label-title'>{props.product.title}</p>
       </CardContent>
     </CardActionArea>
     <CardActions>
-      <Button className="product-button"
+      <Button className="product-button button-label"
         variant="contained"
         fullWidth={true}
         color="primary"

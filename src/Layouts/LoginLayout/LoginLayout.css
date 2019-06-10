@@ -7,7 +7,6 @@
   background: #2c1641;
   width: 100vw;
   color: #fff;
-  font-family: Poppins,sans-serif;
 }
 
 
@@ -24,6 +23,7 @@
   display: block;
   font-size: .875rem;
   color: #6d6e71;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .form-control input {

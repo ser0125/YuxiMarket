@@ -1,12 +1,14 @@
 .home-container { 
   background-color: #faf7ff;
-  height: 100vh;
+  padding: 70px 15px 50px 15px;
+  height: 100%;
   width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .container {
   height: 100%;
-  padding: 70px 15px 50px 15px;
 }
 
 .log-out-button{

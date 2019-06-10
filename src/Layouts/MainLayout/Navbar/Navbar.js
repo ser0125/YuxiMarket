@@ -9,10 +9,13 @@ import LogoutButton from '../LogoutButton/LogoutButton';
 
 const useStyles = makeStyles({
   AppNabvar: {
-    background: "linear-gradient(60deg,#98288f,#4f7499)"
+    background: "linear-gradient(60deg,#98288f,#4f7499)",
   },
   Indicator: {
-    backgroundColor: '#00fff7'
+    backgroundColor: '#00fff7',
+  },
+  FontTab: {
+    fontFamily: "'ZCOOL KuaiLe', cursive !important"
   }
 });
 
@@ -25,16 +28,16 @@ function Navbar() {
   }
 
   return <AppBar position="fixed" className={classes.AppNabvar} >
-        <Tabs value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          classes={{ indicator: classes.Indicator }}>
-          <Tab label="Home" component={Link} to="/home" />
-          <Tab label="About" component={Link} to="/about" />
-          <Tab icon={<ShoppingCart />} aria-label="Shopping-cart" />
-          <LogoutButton />
-        </Tabs>
-      </AppBar>
+    <Tabs value={value}
+      onChange={handleChange}
+      indicatorColor="primary"
+      classes={{ indicator: classes.Indicator }}>
+      <Tab className={classes.FontTabo} label="Home" component={Link} to="/home" />
+      <Tab className={classes.FontTab} label="About" component={Link} to="/about" />
+      <Tab className={classes.FontTab} icon={<ShoppingCart />} aria-label="Shopping-cart" />
+      <LogoutButton />
+    </Tabs>
+  </AppBar>
 }
 
 export default Navbar;
