@@ -1,71 +1,75 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import useForm from '../../forms/useForm';
+import validateRegister from '../../forms/registerFormValidation/registerFormValidation';
 
+const Register = (props) => {
 
-class register extends Component {
-  state = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  }
+  const {
+    values,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = useForm(successRegister, validateRegister);
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { email } = this.state;
-    const userRegister = this.props.users.data.find(user => user.email === email);
+  function successRegister() {
+    const userRegister = props.users.data.find(user => user.email === values.email);
     if (userRegister) {
       alert(`There is another user with this email`);
     } else {
-      this.props.registerUser({
-        name: this.state.fullName,
-        email: this.state.email,
-        password: this.state.password
+      props.registerUser({
+        name: values.name,
+        email: values.email,
+        password: values.password
       })
-      this.props.history.push('/');
+      props.history.push('/');
     }
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  }
-  render() {
-    return <React.Fragment>
-      <h1 className="form-signin-heading">Join to YuxiMarket</h1>
-      <form className="form-signin" onSubmit={this.handleSubmit}>
-        <div className="form-control">
-          <label className="required" htmlFor="name">Name</label>
-          <input name='name' type="text" onChange={this.handleChange} />
-        </div>
-        <div className="form-control">
-          <label className="required" htmlFor="email">Email</label>
-          <input name='email' type="email" onChange={this.handleChange} />
-        </div>
-        <div className="form-control">
-          <label className="required" htmlFor="password">Password</label>
-          <input name='password' type="password" onChange={this.handleChange} />
-        </div>
-        <div className="form-control">
-          <label className="required" htmlFor="password">Confirm password</label>
-          <input name='confirmPassword' type="password" onChange={this.handleChange} />
-        </div>
-        <Button
-          className="form-button"
-          variant="contained"
-          color="primary"
-          type="submit">
-          Create an account
+  return <React.Fragment>
+    <h1 className="form-signin-heading">Join to YuxiMarket</h1>
+    <form className="form-signin" onSubmit={handleSubmit}>
+      <div className="form-control">
+        <label className="required" htmlFor="name">Name</label>
+        <input name='name' type="text" className={`${errors.name && 'error-form'}`} onChange={handleChange} value={values.name || ''} />
+        {errors.name && (
+          <p className="error-info">{errors.name}</p>
+        )}
+      </div>
+      <div className="form-control">
+        <label className="required" htmlFor="email">Email</label>
+        <input name='email' type="email" className={`${errors.email && 'error-form'}`} onChange={handleChange} value={values.email || ''} />
+        {errors.email && (
+          <p className="error-info">{errors.email}</p>
+        )}
+      </div>
+      <div className="form-control">
+        <label className="required" htmlFor="password">Password</label>
+        <input name='password' type="password" className={`${errors.password && 'error-form'}`} onChange={handleChange} value={values.password || ''} />
+        {errors.password && (
+          <p className="error-info">{errors.password}</p>
+        )}
+      </div>
+      <div className="form-control">
+        <label className="required" htmlFor="password">Confirm password</label>
+        <input name='confirmPassword' className={`${errors.confirmPassword && 'error-form'}`} type="password" onChange={handleChange} value={values.confirmPassword || ''} />
+        {errors.confirmPassword && (
+          <p className="error-info">{errors.confirmPassword}</p>
+        )}
+      </div>
+      <Button
+        className="form-button"
+        variant="contained"
+        color="primary"
+        type="submit">
+        Create an account
       </Button>
-      </form>
-      <p>Already have an account?
+    </form>
+    <p>Already have an account?
       <Link to="/"> Sign in</Link>
-      </p>
-    </React.Fragment>
-  }
+    </p>
+  </React.Fragment>
 }
 
-export default register;
+export default Register;

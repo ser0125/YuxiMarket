@@ -1,0 +1,9 @@
+.error-info {
+  color: blueviolet;
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+.form-control .error-form {
+  border: 1px solid blueviolet;
+}

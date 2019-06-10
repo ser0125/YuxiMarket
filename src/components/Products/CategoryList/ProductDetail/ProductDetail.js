@@ -6,7 +6,6 @@ import './ProductDetail.css';
 class ProductDetail extends Component {
 
   componentDidMount() {
-    const { productDetail } = this.props;
       this.props.fetchProduct(this.props.match.params.id);
   }
 
