@@ -9,11 +9,9 @@ const mapStateToProps = (state) => ({
 
 const CustomizedShoppingCart = ({...rest}) => {
   const { countItems } = rest.shoppingCart;
-  return  countItems ? (
-    <Badge badgeContent={countItems} color="secondary">
+  return  <Badge badgeContent={countItems} showZero color="secondary">
       <ShoppingCartIcon />
     </Badge>
-  ): null;
 }
 
 export default connect(mapStateToProps)(CustomizedShoppingCart);

@@ -6,7 +6,8 @@ export default (state=initialState.shoppingCart, action) => {
       case ADD_ITEM_CART:
         return {
           ...state,
-         items: [...state.items, action.payload]
+         items: [...state.items, action.payload],
+         countItems: state.countItems + 1
         }
       default:
         return state;

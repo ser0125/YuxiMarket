@@ -26,7 +26,7 @@ const Shopping = (props) => {
         <p>${formatNumber(item.price)}</p>
       </div>
       <div className='shopping-item-quantity'>
-        <p>2</p>
+        <p>{item.countItem || 0}</p>
       </div>
       </div>
       )

@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchProduct, selectImage, clearOldProduct, addItemCart} from '../actions/products';
+import { fetchProduct, selectImage, clearOldProduct} from '../actions/products';
+import { addItemCart } from '../actions/shoopingCart';
 import ProductDetail from '../components/Products/Home/CategoryList/ProductDetail/ProductDetail';
 
 const mapStateToProps = (state) => ({

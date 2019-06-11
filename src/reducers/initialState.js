@@ -4,11 +4,11 @@ export default {
     isFetching: false,
     data: [],
     error: null,
-},
+  },
   products: {
-      isFetching: false,
-      data: [],
-      error: null,
+    isFetching: false,
+    data: [],
+    error: null,
   },
   productDetail: {
     isFetching: false,
@@ -17,13 +17,13 @@ export default {
     pictures: [],
     activeImage: '',
     error: null,
-},
+  },
   users: {
     data: [],
   },
   loginUser: {},
   shoppingCart: {
     items: [],
-    countItems: 2
+    countItems: 0
   }
 };

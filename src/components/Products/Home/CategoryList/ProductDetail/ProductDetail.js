@@ -7,10 +7,10 @@ import LoaderCircle from '../../../../LoaderCircle/LoaderCircle';
 class ProductDetail extends Component {
 
   componentDidMount() {
-      this.props.fetchProduct(this.props.match.params.id);
+    this.props.fetchProduct(this.props.match.params.id);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.clearOldProduct();
   }
 
@@ -19,9 +19,9 @@ class ProductDetail extends Component {
     price: productDetail.price,
     thumbnail: productDetail.activeImage
   })
-  
-  
-  sendToShoppingCart (productDetail) {
+
+
+  sendToShoppingCart(productDetail) {
     const transformProduct = this.massageShopping(productDetail);
     this.props.addItemCart(transformProduct);
   }
@@ -30,13 +30,13 @@ class ProductDetail extends Component {
     const { productDetail } = this.props
     const productDetailExist = !!productDetail.pictures.length;
     return productDetailExist
-    ? <div className='container-detail'>
+      ? <div className='container-detail'>
         <div className='gallery-container'>
           <div className='gallery-content'>
             {
               Object.keys(productDetail).length ?
-              productDetail.pictures.map(pic => {
-                  return <div className='img-container' key={pic.id} onClick={()=>this.props.selectImage(pic.url)}>
+                productDetail.pictures.map(pic => {
+                  return <div className='img-container' key={pic.id} onClick={() => this.props.selectImage(pic.url)}>
                     <img className='product-detail-thumbnail' src={pic.url} alt='product'></img>
                   </div>
                 })
@@ -57,12 +57,12 @@ class ProductDetail extends Component {
             variant="contained"
             color="primary"
             type="submit"
-            onClick={()=> {this.sendToShoppingCart(productDetail)}}>
+            onClick={() => { this.sendToShoppingCart(productDetail) }}>
             Agregar al carrito
       </Button>
         </div>
       </div>
-      :  <LoaderCircle />
+      : <LoaderCircle />
   }
 }
 
