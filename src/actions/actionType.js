@@ -16,3 +16,5 @@ export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const ERR_PRODUCT = 'ERR_PRODUCT';
 export const SELECT_IMAGE = 'SELECT_IMAGE';
 export const CLEAR_OLD_PRODUCT = 'CLEAR_OLD_PRODUCT';
+
+export const ADD_ITEM_CART = 'ADD_ITEM_CART';

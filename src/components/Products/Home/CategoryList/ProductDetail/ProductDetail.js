@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import './ProductDetail.css';
-import LoaderCircle from '../../../LoaderCircle/LoaderCircle';
+import LoaderCircle from '../../../../LoaderCircle/LoaderCircle';
 
 class ProductDetail extends Component {
 
@@ -13,7 +13,18 @@ class ProductDetail extends Component {
   componentWillUnmount(){
     this.props.clearOldProduct();
   }
-  compon
+
+  massageShopping = (productDetail) => ({
+    title: productDetail.title,
+    price: productDetail.price,
+    thumbnail: productDetail.activeImage
+  })
+  
+  
+  sendToShoppingCart (productDetail) {
+    const transformProduct = this.massageShopping(productDetail);
+    this.props.addItemCart(transformProduct);
+  }
 
   render() {
     const { productDetail } = this.props
@@ -45,7 +56,8 @@ class ProductDetail extends Component {
             className="form-button button-label"
             variant="contained"
             color="primary"
-            type="submit">
+            type="submit"
+            onClick={()=> {this.sendToShoppingCart(productDetail)}}>
             Agregar al carrito
       </Button>
         </div>

@@ -4,7 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
-import { formatNumber } from '../../../../../utils/decimalSeparation';
+import { formatNumber } from '../../../../../../utils/decimalSeparation';
 import { Button, CardActions } from '@material-ui/core';
 const useStyles = makeStyles({
   productCard: {
@@ -39,11 +39,14 @@ const Product = (props) => {
         fullWidth={true}
         color="primary"
         type="submit"
-        size="small" >
+        size="small" 
+        onClick={()=> {props.addItemCart(props.product)}}
+        >
         Agregar al carrito
         </Button>
     </CardActions>
   </Card>
 }
+
 
 export default Product;

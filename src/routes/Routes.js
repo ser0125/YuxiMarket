@@ -7,6 +7,7 @@ import ProductList from '../containers/Products';
 import ProductDetail from '../containers/ProductDetail';
 import About from '../components/Products/About/About';
 import PrivateRoute from '../enhancers/PrivateRoute';
+import Shopping from '../containers/Shopping';
 
 
 const routes = () => {
@@ -17,6 +18,7 @@ const routes = () => {
     <PrivateRoute path="/home/:id" component={ProductList}></PrivateRoute>
     <PrivateRoute exact path="/product/:id" component={ProductDetail}></PrivateRoute>
     <PrivateRoute exact path="/about" component={About}></PrivateRoute>
+    <PrivateRoute exact path="/Shopping" component={Shopping}></PrivateRoute>
   </React.Fragment>
 }
 

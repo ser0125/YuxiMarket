@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryList from '../CategoryList/CategoryList';
+import CategoryList from './CategoryList/CategoryList';
 import LoaderCircle from '../../LoaderCircle/LoaderCircle';
 
 class Home extends React.Component {

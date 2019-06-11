@@ -21,5 +21,9 @@ export default {
   users: {
     data: [],
   },
-  user: {},
+  loginUser: {},
+  shoppingCart: {
+    items: [],
+    countItems: 2
+  }
 };

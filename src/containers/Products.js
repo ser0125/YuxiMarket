@@ -1,8 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchProducts, clearOldProducts } from '../actions/products';
-import ProductList from '../components/Products/CategoryList/ProductList/ProductList';
-
+import { fetchProducts, clearOldProducts, addItemCart } from '../actions/products';
+import ProductList from '../components/Products/Home/CategoryList/ProductList/ProductList';
 const mapStateToProps = (state) => ({
     products: state.products,
     users: state.users
@@ -10,7 +9,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchProducts,
-  clearOldProducts
+  clearOldProducts,
+  addItemCart
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

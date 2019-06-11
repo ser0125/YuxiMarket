@@ -1,10 +1,15 @@
 
 import {
   REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS, CLEAR_OLD_PRODUCTS,
-  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, SELECT_IMAGE, CLEAR_OLD_PRODUCT
+  REQUEST_PRODUCT, RECEIVE_PRODUCT, ERR_PRODUCT, SELECT_IMAGE, CLEAR_OLD_PRODUCT, ADD_ITEM_CART
 } from './actionType';
 import { getProducts, getProductDetail } from '../services/api';
 import { formatNumber } from '../utils/decimalSeparation';
+
+export const addItemCart = (product) => ({
+  type: ADD_ITEM_CART,
+  payload: product
+});
 
 const massageProducts = (product) => ({
   id: product.id,
