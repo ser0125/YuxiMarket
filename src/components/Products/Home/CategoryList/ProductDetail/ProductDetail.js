@@ -15,16 +15,16 @@ class ProductDetail extends Component {
   }
 
   massageShopping = (productDetail) => ({
+    id: productDetail.id,
     title: productDetail.title,
     price: productDetail.price,
-    thumbnail: productDetail.activeImage,
-    countItems: this.props.countItems + 1
+    thumbnail: productDetail.activeImage
   })
 
 
   sendToShoppingCart(productDetail) {
     const transformProduct = this.massageShopping(productDetail);
-    this.props.addNewItemCart(transformProduct);
+    this.props.addItemCart(transformProduct);
   }
 
   render() {

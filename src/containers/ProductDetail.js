@@ -6,8 +6,7 @@ import ProductDetail from '../components/Products/Home/CategoryList/ProductDetai
 
 const mapStateToProps = (state) => ({
   productDetail: state.productDetail,
-  users: state.users,
-  countItems: state.shoppingCart.countItems
+  users: state.users
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

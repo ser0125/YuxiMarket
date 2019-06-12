@@ -4,7 +4,7 @@
 }
 
 .shopping-header-item, .shopping-item-container  {
-  flex: 0 0 65%;
+  flex: 0 0 55%;
   display: flex;
   margin: 10px;
   align-items: center;
@@ -17,6 +17,13 @@
 }
 .shopping-header-quantity, .shopping-item-quantity {
   flex: 0 0 13%;  
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.shopping-header-delete, .shopping-item-delete {
+  flex: 0 0 10%;  
   display: flex;
   margin: 10px;
   align-items: center;
