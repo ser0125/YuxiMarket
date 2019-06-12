@@ -45,12 +45,12 @@ const Shopping = (props) => {
         <p>{item.countItems}</p>
       </div>
       <div className='shopping-item-delete'>
-        <p>< DeleteForeverIcon className={classes.deleteIcon}/></p >
+        < DeleteForeverIcon className={classes.deleteIcon} onClick={()=> props.removeItemCart(item.id)}/>
       </div>
-      </div>
-        )}
+    </div>
+    )}
   </div>
 
-      }
-      
-    export default Shopping;
+}
+
+export default Shopping;

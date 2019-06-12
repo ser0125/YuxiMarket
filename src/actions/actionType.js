@@ -18,3 +18,4 @@ export const SELECT_IMAGE = 'SELECT_IMAGE';
 export const CLEAR_OLD_PRODUCT = 'CLEAR_OLD_PRODUCT';
 
 export const ADD_ITEM_CART = 'ADD_ITEM_CART';
+export const REMOVE_ITEM_CART = 'REMOVE_ITEM_CART';
