@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     height: '85%'
   }
 });
+const sendToShoppingCart = (props) => {
+    props.addItemCart(props.product);
+}
 
 const Product = (props) => {
   const classes = useStyles();
@@ -39,9 +42,9 @@ const Product = (props) => {
         fullWidth={true}
         color="primary"
         type="submit"
-        size="small" 
-        onClick={()=> {props.addItemCart(props.product)}}
-        >
+        size="small"
+        onClick={() => sendToShoppingCart(props)}
+      >
         Agregar al carrito
         </Button>
     </CardActions>

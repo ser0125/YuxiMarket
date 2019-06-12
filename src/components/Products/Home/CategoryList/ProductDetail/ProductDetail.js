@@ -17,13 +17,14 @@ class ProductDetail extends Component {
   massageShopping = (productDetail) => ({
     title: productDetail.title,
     price: productDetail.price,
-    thumbnail: productDetail.activeImage
+    thumbnail: productDetail.activeImage,
+    countItems: this.props.countItems + 1
   })
 
 
   sendToShoppingCart(productDetail) {
     const transformProduct = this.massageShopping(productDetail);
-    this.props.addItemCart(transformProduct);
+    this.props.addNewItemCart(transformProduct);
   }
 
   render() {
@@ -57,7 +58,7 @@ class ProductDetail extends Component {
             variant="contained"
             color="primary"
             type="submit"
-            onClick={() => { this.sendToShoppingCart(productDetail) }}>
+            onClick={() => { this.sendToShoppingCart(productDetail)}}>
             Agregar al carrito
       </Button>
         </div>
