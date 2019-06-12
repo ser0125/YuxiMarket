@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import './ProductDetail.css';
 import LoaderCircle from '../../../../LoaderCircle/LoaderCircle';
+import { showSuccessProduct } from '../../../../../utils/showSuccessProduct';
+
 
 class ProductDetail extends Component {
 
@@ -21,8 +23,10 @@ class ProductDetail extends Component {
     thumbnail: productDetail.activeImage
   })
 
+ 
 
   sendToShoppingCart(productDetail) {
+    showSuccessProduct();
     const transformProduct = this.massageShopping(productDetail);
     this.props.addItemCart(transformProduct);
   }

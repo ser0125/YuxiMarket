@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
 import { formatNumber } from '../../../../../../utils/decimalSeparation';
 import { Button, CardActions } from '@material-ui/core';
+import { showSuccessProduct } from '../../../../../../utils/showSuccessProduct';
+
 const useStyles = makeStyles({
   productCard: {
     flex: '0 0 15%',
@@ -21,6 +23,7 @@ const useStyles = makeStyles({
   }
 });
 const sendToShoppingCart = (props) => {
+    showSuccessProduct();
     props.addItemCart(props.product);
 }
 
