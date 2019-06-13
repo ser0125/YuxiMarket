@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
 import { formatNumber } from '../../../../../../utils/decimalSeparation';
 import { Button, CardActions } from '@material-ui/core';
-import { showSuccessProduct } from '../../../../../../utils/showSuccessProduct';
+import { showSuccessProduct } from '../../../../../../utils/showAlerts';
 
 const useStyles = makeStyles({
   productCard: {

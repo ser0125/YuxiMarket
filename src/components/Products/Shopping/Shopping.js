@@ -3,6 +3,7 @@ import { formatNumber } from '../../../utils/decimalSeparation';
 import './Shopping.css';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core/styles';
+import { showRemoveProduct } from '../../../utils/showAlerts';
 
 const useStyles = makeStyles(() => ({
   deleteIcon: {
@@ -13,6 +14,16 @@ const useStyles = makeStyles(() => ({
     }
   },
 }));
+
+const removeItem = (props, id) => {
+  showRemoveProduct();
+  props.removeItemCart(id)
+}
+
+const getTotalPrices = (items) => {
+  const totalPrice = items.reduce((total, item) => total + item.price * item.countItems, 0);
+  return formatNumber(totalPrice);
+}
 
 const Shopping = (props) => {
   const classes = useStyles();
@@ -31,26 +42,35 @@ const Shopping = (props) => {
         <span>Eliminar/unidad</span>
       </div>
     </div>
-    {props.shoppingCart.items.map(item => <div className='shopping-item'>
-      <div className='shopping-item-container'>
-        <div className='shopping-thumbnail-container'>
-          <img className="shopping-product-thumbnail" src={item.thumbnail} alt="product" />
+    {
+      props.shoppingCart.items.length > 0 ?
+        <div className= 'shopping-list'>
+          {
+            props.shoppingCart.items.map(item => <div className='shopping-item'>
+              <div className='shopping-item-container'>
+                <div className='shopping-thumbnail-container'>
+                  <img className="shopping-product-thumbnail" src={item.thumbnail} alt="product" />
+                </div>
+                <p className='label-title'>{item.title}</p>
+              </div>
+              <div className='shopping-item-price'>
+                <p>${formatNumber(item.price)}</p>
+              </div>
+              <div className='shopping-item-quantity'>
+                <p>{item.countItems}</p>
+              </div>
+              <div className='shopping-item-delete'>
+                <DeleteForeverIcon className={classes.deleteIcon} onClick={() => removeItem(props, item.id)} />
+              </div>
+            </div>
+            )}
+          <div className='shopping-total'>
+            <h2>Total ({props.shoppingCart.countItems} productos) {getTotalPrices(props.shoppingCart.items)} </h2>
+          </div>
         </div>
-        <p className='label-title'>{item.title}</p>
-      </div>
-      <div className='shopping-item-price'>
-        <p>${formatNumber(item.price)}</p>
-      </div>
-      <div className='shopping-item-quantity'>
-        <p>{item.countItems}</p>
-      </div>
-      <div className='shopping-item-delete'>
-        < DeleteForeverIcon className={classes.deleteIcon} onClick={()=> props.removeItemCart(item.id)}/>
-      </div>
-    </div>
-    )}
+        : null
+    }
   </div>
-
 }
 
 export default Shopping;

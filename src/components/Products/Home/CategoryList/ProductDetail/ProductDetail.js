@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import './ProductDetail.css';
 import LoaderCircle from '../../../../LoaderCircle/LoaderCircle';
-import { showSuccessProduct } from '../../../../../utils/showSuccessProduct';
+import { showSuccessProduct } from '../../../../../utils/showAlerts';
 
 
 class ProductDetail extends Component {

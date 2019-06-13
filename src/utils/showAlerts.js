@@ -12,3 +12,12 @@ export const showSuccessProduct = () => {
       confirmButtonText: 'Aceptar'
     });
 }
+
+
+export const showRemoveProduct = () => {
+  MySwal.fire({
+    type: 'success',
+    title: 'El producto se ha eliminado de la lista',
+    confirmButtonText: 'Aceptar'
+  });
+}

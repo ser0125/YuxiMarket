@@ -13,6 +13,7 @@
   border: 1px solid lightskyblue;
   color: #98288f;
   padding-top: 20px;
+  cursor: pointer;
 }
 .card-category:hover {
   background-color: #98288f;

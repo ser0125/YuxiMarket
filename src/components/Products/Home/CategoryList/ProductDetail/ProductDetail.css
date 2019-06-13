@@ -11,6 +11,7 @@
   height: 95px;
   text-align: center;
   overflow: hidden;
+  cursor: pointer;
 }
 .gallery-container {
   flex: 0 0 65%;
