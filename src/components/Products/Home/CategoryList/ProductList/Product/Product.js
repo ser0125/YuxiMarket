@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   }
 });
 const sendToShoppingCart = (props) => {
-    showSuccessProduct();
+    showSuccessProduct('El producto se ha agregado con exito');
     props.addItemCart(props.product);
 }
 

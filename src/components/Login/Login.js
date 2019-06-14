@@ -26,17 +26,17 @@ const Login = (props) => {
   }
 
     return <React.Fragment>
-      <h2 className="form-signin-heading">Sign in to YuxiMarket</h2>
+      <h2 className="form-signin-heading">Bienvenido al YuxiMarket</h2>
       <form className="form-signin" onSubmit={handleSubmit}>
         <div className="form-control">
-          <label className="required" htmlFor="email">Email</label>
+          <label className="required" htmlFor="email">Correo Electronico</label>
           <input name='email' type="email" className={`${errors.email && 'error-form'}`} onChange={handleChange} value={values.email || ''} required  />
           {errors.email && (
                     <p className="error-info">{errors.email}</p>
                   )}
         </div>
         <div className="form-control">
-          <label className="required" htmlFor="password">Password</label>
+          <label className="required" htmlFor="password">Contraseña</label>
           <input name='password' type="password" className={`${errors.password && 'error-form'}`}  onChange={handleChange} value={values.password  || ''} required  />
           {errors.password && (
                   <p className="error-info">{errors.password}</p>
@@ -47,11 +47,11 @@ const Login = (props) => {
           variant="contained"
           color="primary"
           type="submit">
-          Login
+          Ingresar
       </Button>
       </form>
-      <p>Don't have an account?
-      <Link to="/sign-up"> Create a new account</Link>
+      <p>Aun no tienes usuario? 
+      <Link to="/sign-up">  Crea un nuevo usuario</Link>
       </p>
     </React.Fragment>
 }

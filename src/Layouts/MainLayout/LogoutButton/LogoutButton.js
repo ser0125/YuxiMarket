@@ -5,7 +5,7 @@ import { logoutUser } from '../../../actions/users';
 
 function LogoutButton (props) {
   return !!Object.keys(props.loginUser).length && 
-    <button className='log-out-button' onClick={props.logoutUser}>LOG OUT</button>
+    <button className='log-out-button' onClick={props.logoutUser}>CERRAR SESIÓN</button>
 }
 
 const mapStateToProps = (state) => ({

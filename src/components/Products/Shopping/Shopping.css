@@ -49,6 +49,6 @@
   height: 90px;
 }
 
-.shopping-total {
+.shopping-total, .shopping-button {
   text-align: right;
 }

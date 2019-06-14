@@ -34,8 +34,8 @@ function Navbar() {
       onChange={handleChange}
       indicatorColor="primary"
       classes={{ indicator: classes.Indicator }}>
-      <Tab className={classes.FontTabo} label="Home" component={Link} to="/home" />
-      <Tab className={classes.FontTab} label="About" component={Link} to="/about" />
+      <Tab className={classes.FontTab} label="Inicio" component={Link} to="/home" />
+      <Tab className={classes.FontTab} label="Nosotros" component={Link} to="/about" />
       <Tab className={classes.FontTab} label={ <CustomizedShoppingCart /> } aria-label="Shopping-cart" component={Link} to="/shopping" />
       <LogoutButton />
     </Tabs>

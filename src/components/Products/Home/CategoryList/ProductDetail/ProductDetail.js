@@ -26,7 +26,7 @@ class ProductDetail extends Component {
  
 
   sendToShoppingCart(productDetail) {
-    showSuccessProduct();
+    showSuccessProduct('El producto se ha agregado con exito');
     const transformProduct = this.massageShopping(productDetail);
     this.props.addItemCart(transformProduct);
   }

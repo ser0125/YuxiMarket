@@ -28,31 +28,31 @@ const Register = (props) => {
   }
 
   return <React.Fragment>
-    <h1 className="form-signin-heading">Join to YuxiMarket</h1>
+    <h1 className="form-signin-heading">Regristate en el YuxiMarket</h1>
     <form className="form-signin" onSubmit={handleSubmit}>
       <div className="form-control">
-        <label className="required" htmlFor="name">Name</label>
+        <label className="required" htmlFor="name">Nombre</label>
         <input name='name' type="text" className={`${errors.name && 'error-form'}`} onChange={handleChange} value={values.name || ''} />
         {errors.name && (
           <p className="error-info">{errors.name}</p>
         )}
       </div>
       <div className="form-control">
-        <label className="required" htmlFor="email">Email</label>
+        <label className="required" htmlFor="email">Correo Electronico</label>
         <input name='email' type="email" className={`${errors.email && 'error-form'}`} onChange={handleChange} value={values.email || ''} />
         {errors.email && (
           <p className="error-info">{errors.email}</p>
         )}
       </div>
       <div className="form-control">
-        <label className="required" htmlFor="password">Password</label>
+        <label className="required" htmlFor="password">Contraseña</label>
         <input name='password' type="password" className={`${errors.password && 'error-form'}`} onChange={handleChange} value={values.password || ''} />
         {errors.password && (
           <p className="error-info">{errors.password}</p>
         )}
       </div>
       <div className="form-control">
-        <label className="required" htmlFor="password">Confirm password</label>
+        <label className="required" htmlFor="password">Confirmar Contraseña</label>
         <input name='confirmPassword' className={`${errors.confirmPassword && 'error-form'}`} type="password" onChange={handleChange} value={values.confirmPassword || ''} />
         {errors.confirmPassword && (
           <p className="error-info">{errors.confirmPassword}</p>
@@ -63,11 +63,11 @@ const Register = (props) => {
         variant="contained"
         color="primary"
         type="submit">
-        Create an account
+        Crear nuevo usuario
       </Button>
     </form>
-    <p>Already have an account?
-      <Link to="/"> Sign in</Link>
+    <p>Ya tienes un usuario creado?
+      <Link to="/"> Ingresa con tu usuario</Link>
     </p>
   </React.Fragment>
 }

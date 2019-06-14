@@ -3,7 +3,8 @@ import { formatNumber } from '../../../utils/decimalSeparation';
 import './Shopping.css';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core/styles';
-import { showRemoveProduct } from '../../../utils/showAlerts';
+import { showRemoveProduct, showSuccessProduct } from '../../../utils/showAlerts';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
   deleteIcon: {
@@ -44,7 +45,7 @@ const Shopping = (props) => {
     </div>
     {
       props.shoppingCart.items.length > 0 ?
-        <div className= 'shopping-list'>
+        <div className='shopping-list'>
           {
             props.shoppingCart.items.map(item => <div className='shopping-item'>
               <div className='shopping-item-container'>
@@ -67,6 +68,13 @@ const Shopping = (props) => {
           <div className='shopping-total'>
             <h2>Total ({props.shoppingCart.countItems} productos) {getTotalPrices(props.shoppingCart.items)} </h2>
           </div>
+          <div className='shopping-button'>
+          <Button variant="contained"
+           color="primary"
+            type="submit"
+            size="small"
+            onClick={() => showSuccessProduct('Se ha realizado la compra de forma exitosa')}>Realizar Compra</Button>
+            </div>
         </div>
         : null
     }

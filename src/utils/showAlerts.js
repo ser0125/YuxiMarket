@@ -5,10 +5,10 @@ import Swal from 'sweetalert2';
 
 const MySwal = withReactContent(Swal)
 
-export const showSuccessProduct = () => {
+export const showSuccessProduct = (title) => {
     MySwal.fire({
       type: 'success',
-      title: 'El producto se ha agregado con exito',
+      title: title,
       confirmButtonText: 'Aceptar'
     });
 }
