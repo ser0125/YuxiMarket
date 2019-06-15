@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { removeItemCart } from '../actions/shoopingCart';
+import { changeQuantityItem } from '../actions/shoopingCart';
 import Shopping from '../components/Products/Shopping/Shopping';
 import { bindActionCreators } from 'redux';
 
@@ -8,7 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-    removeItemCart
+    removeItemCart,
+    changeQuantityItem
   }, dispatch);
   
 export default connect(mapStateToProps, mapDispatchToProps)(Shopping);

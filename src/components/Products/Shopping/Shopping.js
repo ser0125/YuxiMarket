@@ -26,7 +26,17 @@ const getTotalPrices = (items) => {
   return formatNumber(totalPrice);
 }
 
+const handleChange = (props, id, event) => {
+  const quantityItem = {id: id, countItems: parseInt(event.target.value)};
+  props.changeQuantityItem(quantityItem);
+}
+
+
 const Shopping = (props) => {
+  const options = [];
+  for(let i=1; i<20; i++){
+    options.push(<option key={i} value={i}>{i}</option>);
+  }
   const classes = useStyles();
   return <div className='shopping-list'>
     <div className='shopping-header'>
@@ -47,7 +57,7 @@ const Shopping = (props) => {
       props.shoppingCart.items.length > 0 ?
         <div className='shopping-list'>
           {
-            props.shoppingCart.items.map(item => <div className='shopping-item'>
+            props.shoppingCart.items.map(item => <div key={item.id} className='shopping-item'>
               <div className='shopping-item-container'>
                 <div className='shopping-thumbnail-container'>
                   <img className="shopping-product-thumbnail" src={item.thumbnail} alt="product" />
@@ -58,7 +68,9 @@ const Shopping = (props) => {
                 <p>${formatNumber(item.price)}</p>
               </div>
               <div className='shopping-item-quantity'>
-                <p>{item.countItems}</p>
+                <select name="quantity-list" value={item.countItems} onChange={(event)=>handleChange(props, item.id, event)}>
+                 {options}
+                </select>
               </div>
               <div className='shopping-item-delete'>
                 <DeleteForeverIcon className={classes.deleteIcon} onClick={() => removeItem(props, item.id)} />

@@ -1,4 +1,4 @@
-import { ADD_ITEM_CART, REMOVE_ITEM_CART } from "../actions/actionType";
+import { ADD_ITEM_CART, REMOVE_ITEM_CART, CHANGE_QUANTITY_ITEM } from "../actions/actionType";
 import initialState from "./initialState";
 export default (state = initialState.shoppingCart, action) => {
   switch (action.type) {
@@ -13,6 +13,12 @@ export default (state = initialState.shoppingCart, action) => {
         ...state,
         items: removeItem(state, action),
         countItems: state.countItems - 1
+      }
+    case CHANGE_QUANTITY_ITEM:
+      return {
+        ...state,
+        items: changeItem(state, action),
+        countItems: changeGlobalCount(state, action)
       }
     default:
       return state;
@@ -47,7 +53,7 @@ const removeItem = (state, action) => {
       : true
   })
     .map(item => {
-     return item.id === action.payload ?
+      return item.id === action.payload ?
         item.countItems > 1 ?
           {
             ...item,
@@ -55,4 +61,21 @@ const removeItem = (state, action) => {
           } : item
         : item
     })
+}
+
+const changeItem = (state, action) => {
+  return state.items.map(item => {
+    return item.id === action.payload.id ?
+      {
+        ...item,
+        countItems: action.payload.countItems
+      } : item
+  });
+}
+
+const changeGlobalCount = (state, action) => {
+  let selectedItem = state.items.find(item => item.id === action.payload.id);
+  return selectedItem.countItems < action.payload.countItems ?
+    state.countItems +  action.payload.countItems  - selectedItem.countItems
+    : state.countItems - selectedItem.countItems + action.payload.countItems
 }
