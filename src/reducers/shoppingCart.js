@@ -12,7 +12,7 @@ export default (state = initialState.shoppingCart, action) => {
       return {
         ...state,
         items: removeItem(state, action),
-        countItems: state.countItems - 1
+        countItems: removeGlobalCount(state, action)
       }
     case CHANGE_QUANTITY_ITEM:
       return {
@@ -46,21 +46,17 @@ const addItem = (state, action) => {
 
 
 const removeItem = (state, action) => {
-
   return state.items.filter(item => {
-    return item.id === action.payload ?
-      item.countItems === 1 ? false : true
-      : true
+    return item.id === action.payload ? false : true
   })
-    .map(item => {
-      return item.id === action.payload ?
-        item.countItems > 1 ?
-          {
-            ...item,
-            countItems: item.countItems - 1
-          } : item
-        : item
-    })
+}
+
+
+const removeGlobalCount = (state, action) => {
+  const item = state.items.find(item => {
+    return item.id === action.payload 
+  })
+  return state.countItems - item.countItems;
 }
 
 const changeItem = (state, action) => {

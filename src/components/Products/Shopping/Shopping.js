@@ -53,7 +53,7 @@ const Shopping = (props) => {
         <span>Cantidad</span>
       </div>
       <div className='shopping-header-delete'>
-        <span>Eliminar/unidad</span>
+        <span>Eliminar</span>
       </div>
     </div>
     {

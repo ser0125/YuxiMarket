@@ -43,7 +43,7 @@ class ProductList extends React.Component {
             <h3>{products.data.categoryName.name}</h3>
             <h5>Precio</h5>
             {products.data.filterPrice.map(range => {
-              return <p className='filters-price' onClick={() => this.selectPriceFilter(range)}>{range.name}</p>
+              return <p key={range.id} className='filters-price' onClick={() => this.selectPriceFilter(range)}>{range.name}</p>
             })}
           </aside>
           <div className="product-list">
