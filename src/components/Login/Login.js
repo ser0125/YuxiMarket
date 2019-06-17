@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import validateLogin from '../../forms/loginFormValidation/loginFormValidation';
 import useForm from '../../forms/useForm';
+import { showErrorLogin } from '../../utils/showAlerts';
 
 const Login = (props) => {
   const {
@@ -21,7 +22,7 @@ const Login = (props) => {
       props.loginUser(loginUser)
       props.history.push('/home');
     } else {
-      alert(`Incorrect user or password`);
+      showErrorLogin()
     }
   }
 

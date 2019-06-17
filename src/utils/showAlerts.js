@@ -5,6 +5,13 @@ import Swal from 'sweetalert2';
 
 const MySwal = withReactContent(Swal)
 
+export const showErrorLogin = () => {
+  Swal.fire({
+    type: 'error',
+    title: 'Oops...',
+    text: 'Usuario o contraseña incorrecto!'
+  })
+}
 export const showSuccessProduct = (title) => {
   MySwal.fire({
     type: 'success',
