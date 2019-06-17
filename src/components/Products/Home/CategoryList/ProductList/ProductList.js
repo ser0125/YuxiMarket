@@ -48,7 +48,7 @@ class ProductList extends React.Component {
           </aside>
           <div className="product-list">
             {products.data.results.map(product => <Product key={product.id}
-              product={product} selectProduct={() => this.selectProduct(product.id)}
+              product={product} items= {this.props.items} selectProduct={() => this.selectProduct(product.id)}
               addItemCart={this.props.addItemCart}></Product>)}
           </div>
         </div>

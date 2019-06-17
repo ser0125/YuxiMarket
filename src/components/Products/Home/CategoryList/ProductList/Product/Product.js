@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
 import { formatNumber } from '../../../../../../utils/decimalSeparation';
 import { Button, CardActions } from '@material-ui/core';
-import { showSuccessProduct } from '../../../../../../utils/showAlerts';
+import { showSuccessProduct, showErrorAlert } from '../../../../../../utils/showAlerts';
 
 const useStyles = makeStyles({
   productCard: {
@@ -23,8 +23,15 @@ const useStyles = makeStyles({
   }
 });
 const sendToShoppingCart = (props) => {
-    showSuccessProduct('El producto se ha agregado con exito');
-    props.addItemCart(props.product);
+  const existProduct = props.items.find(item => item.id === props.product.id);
+  if (existProduct) {
+    if (existProduct.countItems > 18) {
+      showErrorAlert('Son 19 productos maximo');
+      return; 
+    }
+  }
+  showSuccessProduct('El producto se ha agregado con exito');
+  props.addItemCart(props.product);
 }
 
 const Product = (props) => {

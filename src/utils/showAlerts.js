@@ -5,11 +5,11 @@ import Swal from 'sweetalert2';
 
 const MySwal = withReactContent(Swal)
 
-export const showErrorLogin = () => {
+export const showErrorAlert= (title) => {
   Swal.fire({
     type: 'error',
     title: 'Oops...',
-    text: 'Usuario o contraseña incorrecto!'
+    text: title
   })
 }
 export const showSuccessProduct = (title) => {

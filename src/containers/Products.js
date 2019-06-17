@@ -5,7 +5,8 @@ import { addItemCart } from '../actions/shoopingCart';
 import ProductList from '../components/Products/Home/CategoryList/ProductList/ProductList';
 const mapStateToProps = (state) => ({
     products: state.products,
-    users: state.users
+    users: state.users,
+    items: state.shoppingCart.items
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
