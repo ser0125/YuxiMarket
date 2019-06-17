@@ -3,3 +3,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.navbar-icon {
+  margin: 10px;
+  width: 60px;
+}

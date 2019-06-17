@@ -1,3 +1,4 @@
+
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import LogoutButton from '../LogoutButton/LogoutButton';
 import CustomizedShoppingCart from './CustomizedShoppingCart/CustomizedShoppingCart';
+import yuxiLogo from '../../../assets/YUXI_LOGO_WHITE.svg';
 
 const useStyles = makeStyles({
   AppNabvar: {
@@ -34,6 +36,7 @@ function Navbar() {
       onChange={handleChange}
       indicatorColor="primary"
       classes={{ indicator: classes.Indicator }}>
+      <img src={yuxiLogo} alt='yuxi Logo'/>
       <Tab className={classes.FontTab} label="Inicio" component={Link} to="/home" />
       <Tab className={classes.FontTab} label="Nosotros" component={Link} to="/about" />
       <Tab className={classes.FontTab} label={ <CustomizedShoppingCart /> } aria-label="Shopping-cart" component={Link} to="/shopping" />
