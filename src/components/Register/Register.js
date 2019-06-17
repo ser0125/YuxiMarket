@@ -28,7 +28,7 @@ const Register = (props) => {
   }
 
   return <React.Fragment>
-    <h1 className="form-signin-heading">Regristate en el YuxiMarket</h1>
+    <h1 className="form-signin-heading">Registrate en el YuxiMarket</h1>
     <form className="form-signin" onSubmit={handleSubmit}>
       <div className="form-control">
         <label className="required" htmlFor="name">Nombre</label>

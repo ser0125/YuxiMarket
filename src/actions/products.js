@@ -79,7 +79,7 @@ const massageProduct = (product) => ({
   id: product.id,
   pictures: product.pictures.slice(0, 6),
   activeImage: product.pictures[0].url,
-  price: formatNumber(product.price),
+  price: product.price,
   title: product.title
 })
 

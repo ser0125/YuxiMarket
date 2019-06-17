@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import './ProductDetail.css';
 import LoaderCircle from '../../../../LoaderCircle/LoaderCircle';
 import { showSuccessProduct } from '../../../../../utils/showAlerts';
+import { formatNumber } from '../../../../../utils/decimalSeparation';
 
 
 class ProductDetail extends Component {
@@ -56,7 +57,7 @@ class ProductDetail extends Component {
         </div>
         <div className='info-product'>
           <h1>{productDetail.title}</h1>
-          <p className="price-product">${productDetail.price}</p>
+          <p className="price-product">${formatNumber(productDetail.price)}</p>
           <Button
             className="form-button button-label"
             variant="contained"
