@@ -1,10 +1,20 @@
 import {
-  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS, CLEAR_OLD_PRODUCTS
+  REQUEST_PRODUCTS, RECEIVE_PRODUCTS, ERR_PRODUCTS, CLEAR_OLD_PRODUCTS, FILTER_SELECT, CLEAR_FILTER
 } from '../actions/actionType';
 import initialState from './initialState';
 
 export default (state = initialState.products, action) => {
   switch (action.type) {
+    case FILTER_SELECT:
+      return {
+        ...state,
+        data: {...state.data, filteredSelected: action.payload}
+      };
+      case CLEAR_FILTER:
+        return {
+          ...state,
+          data: {...state.data, filteredSelected: ''}
+        };
     case REQUEST_PRODUCTS:
       return {
         ...state,
@@ -14,7 +24,7 @@ export default (state = initialState.products, action) => {
       return {
         ...state,
         isFetching: false,
-        data: action.payload
+        data: {...state.data, ...action.payload}
       }
     case ERR_PRODUCTS:
       return {

@@ -3,6 +3,36 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .title-products {
   text-align: center;
+}
+
+.aside-products {
+  flex: 0 0 18%;
+}
+
+.product-list {    
+  display: flex;
+  flex: 0 0 80%;
+  flex-wrap: wrap;
+}
+
+.filters-price:hover {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.filters-selected {
+  background-color: lavender;
+  border: 1px solid black;
+  position: relative;
+}
+
+.close-icon-container {
+  right: 0;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 0;
 }

@@ -10,7 +10,7 @@ import { showSuccessProduct } from '../../../../../../utils/showAlerts';
 
 const useStyles = makeStyles({
   productCard: {
-    flex: '0 0 15%',
+    flex: '0 0 18%',
     margin: '10px'
   },
   cardContent: {

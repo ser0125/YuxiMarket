@@ -7,7 +7,12 @@ export default {
   },
   products: {
     isFetching: false,
-    data: [],
+    data: {
+      results: [],
+      categoryName: '',
+      filterPrice: [],
+      filteredSelected: ''
+    },
     error: null,
   },
   productDetail: {
