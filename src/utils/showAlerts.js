@@ -6,18 +6,30 @@ import Swal from 'sweetalert2';
 const MySwal = withReactContent(Swal)
 
 export const showSuccessProduct = (title) => {
-    MySwal.fire({
-      type: 'success',
-      title: title,
-      confirmButtonText: 'Aceptar'
-    });
+  MySwal.fire({
+    type: 'success',
+    title: title,
+    confirmButtonText: 'Aceptar'
+  });
 }
 
 
 export const showRemoveProduct = () => {
-  MySwal.fire({
-    type: 'success',
-    title: 'El producto se ha eliminado de la lista',
-    confirmButtonText: 'Aceptar'
+  return MySwal.fire({
+    type: 'warning',
+    title: '¿Estas seguro de eliminar el producto?',
+    showCancelButton: true,
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, eliminar!'
+  }).then((result) => {
+    if (result.value) {
+      Swal.fire(
+        'Eliminado exitosamente!',
+        '',
+        'success'
+      )
+      return true;
+    }
   });
 }

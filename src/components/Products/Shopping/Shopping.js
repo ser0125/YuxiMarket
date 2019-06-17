@@ -17,9 +17,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const removeItem = (props, id) => {
-  showRemoveProduct();
-  props.removeItemCart(id)
-}
+  showRemoveProduct().then((result) => {
+    if (result) {
+      props.removeItemCart(id)
+    }
+  });
+};
 
 const getTotalPrices = (items) => {
   const totalPrice = items.reduce((total, item) => total + item.price * item.countItems, 0);
@@ -27,21 +30,21 @@ const getTotalPrices = (items) => {
 }
 
 const handleChange = (props, id, event) => {
-  const quantityItem = {id: id, countItems: parseInt(event.target.value)};
+  const quantityItem = { id: id, countItems: parseInt(event.target.value) };
   props.changeQuantityItem(quantityItem);
 }
 
 
 const Shopping = (props) => {
   const options = [];
-  for(let i=1; i<20; i++){
+  for (let i = 1; i < 20; i++) {
     options.push(<option key={i} value={i}>{i}</option>);
   }
   const classes = useStyles();
   return <div className='shopping-list'>
     <div className='shopping-header'>
       <div className='shopping-header-item'>
-        <h2>Cesta</h2>
+        <h2>Carrito de compras</h2>
       </div>
       <div className='shopping-header-price'>
         <span>Precio</span>
@@ -68,8 +71,8 @@ const Shopping = (props) => {
                 <p>${formatNumber(item.price)}</p>
               </div>
               <div className='shopping-item-quantity'>
-                <select name="quantity-list" value={item.countItems} onChange={(event)=>handleChange(props, item.id, event)}>
-                 {options}
+                <select name="quantity-list" value={item.countItems} onChange={(event) => handleChange(props, item.id, event)}>
+                  {options}
                 </select>
               </div>
               <div className='shopping-item-delete'>
@@ -81,12 +84,12 @@ const Shopping = (props) => {
             <h2>Total ({props.shoppingCart.countItems} productos) {getTotalPrices(props.shoppingCart.items)} </h2>
           </div>
           <div className='shopping-button'>
-          <Button variant="contained"
-           color="primary"
-            type="submit"
-            size="small"
-            onClick={() => showSuccessProduct('Se ha realizado la compra de forma exitosa')}>Realizar Compra</Button>
-            </div>
+            <Button variant="contained"
+              color="primary"
+              type="submit"
+              size="small"
+              onClick={() => showSuccessProduct('Se ha realizado la compra de forma exitosa')}>Realizar Compra</Button>
+          </div>
         </div>
         : null
     }

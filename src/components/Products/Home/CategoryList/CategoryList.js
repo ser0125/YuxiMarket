@@ -9,7 +9,7 @@ class CategoryList extends React.Component {
 
   render() {
     return <React.Fragment>
-      <h1>Categorias Populares</h1>
+      <h1 className='category-title'>YuxiMarket &nbsp; | &nbsp; Categorias Populares</h1>
       <div className="category-list">
         {this.props.categories.map((category) =>
           <div className="card-category" key={category.id} onClick={() => this.selectCategory(category.id)}>

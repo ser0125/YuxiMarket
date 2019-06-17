@@ -5,7 +5,6 @@ import {
   FILTER_SELECT, CLEAR_FILTER
 } from './actionType';
 import { getProducts, getProductDetail, getfilterPrice } from '../services/api';
-import { formatNumber } from '../utils/decimalSeparation';
 
 const massageProducts = (product) => ({
   id: product.id,
