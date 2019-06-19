@@ -8,11 +8,12 @@ import { makeStyles } from '@material-ui/styles';
 import LogoutButton from '../LogoutButton/LogoutButton';
 import CustomizedShoppingCart from './CustomizedShoppingCart/CustomizedShoppingCart';
 import yuxiLogo from '../../../assets/YUXI_LOGO_WHITE.svg';
-
+import './Navbar.css';
 const useStyles = makeStyles({
   AppNabvar: {
     background: "linear-gradient(60deg,#98288f,#4f7499)",
-    display: flex
+    display: "flex",
+    flexDirection: "row"
 
   },
   Indicator: {
@@ -20,6 +21,9 @@ const useStyles = makeStyles({
   },
   FontTab: {
     fontFamily: "'ZCOOL KuaiLe', cursive !important"
+  },
+  Tabs: {
+    flexGrow: 1
   }
 });
 
@@ -38,6 +42,7 @@ function Navbar() {
     <Tabs value={value}
       onChange={handleChange}
       indicatorColor="primary"
+      className = {classes.Tabs}
       classes={{ indicator: classes.Indicator }}>
       <Tab className={classes.FontTab} label="Inicio" component={Link} to="/home" />
       <Tab className={classes.FontTab} label="Nosotros" component={Link} to="/about" />
