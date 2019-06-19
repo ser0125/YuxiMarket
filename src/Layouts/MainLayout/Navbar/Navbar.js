@@ -11,7 +11,9 @@ import yuxiLogo from '../../../assets/YUXI_LOGO_WHITE.svg';
 
 const useStyles = makeStyles({
   AppNabvar: {
-    background: "linear-gradient(60deg,#98288f,#4f7499)"
+    background: "linear-gradient(60deg,#98288f,#4f7499)",
+    display: flex
+
   },
   Indicator: {
     backgroundColor: '#00fff7',
@@ -32,11 +34,11 @@ function Navbar() {
   }
 
   return <AppBar position="fixed" className={classes.AppNabvar} >
+    <img className='navbar-icon' src={yuxiLogo} alt='yuxi Logo'/>
     <Tabs value={value}
       onChange={handleChange}
       indicatorColor="primary"
       classes={{ indicator: classes.Indicator }}>
-      <img className='navbar-icon' src={yuxiLogo} alt='yuxi Logo'/>
       <Tab className={classes.FontTab} label="Inicio" component={Link} to="/home" />
       <Tab className={classes.FontTab} label="Nosotros" component={Link} to="/about" />
       <Tab className={classes.FontTab} label={ <CustomizedShoppingCart /> } aria-label="Shopping-cart" component={Link} to="/shopping" />
