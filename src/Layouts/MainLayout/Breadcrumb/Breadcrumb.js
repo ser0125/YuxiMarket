@@ -9,7 +9,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const breadcrumbNameMap = {
   '/home': 'Inicio',
-  '/home/': 'Productos',
   '/about': 'Nosotros',
   '/shopping': 'Carrito'
 };
@@ -20,6 +19,9 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     width: 360,
+    position: 'absolute',
+    zIndex: '21',
+    top:'70px'
   },
   lists: {
     backgroundColor: theme.palette.background.paper,

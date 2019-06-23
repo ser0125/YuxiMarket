@@ -9,6 +9,7 @@
 
 .container {
   height: 100%;
+  margin-top: 25px;
 }
 
 .log-out-button{
