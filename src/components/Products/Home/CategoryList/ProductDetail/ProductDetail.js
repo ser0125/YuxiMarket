@@ -43,21 +43,18 @@ class ProductDetail extends Component {
     this.props.addItemCart(transformProduct);
   }
 
-  toggleHover = (event,title) => {
-    console.log(title);
-    event.persist();
+  toggleHover = (event, title) => {
     this.setState({
       onHover: !this.state.onHover
     })
   }
 
   mouseMove = (event, title) => {
-    event.persist();
     this.setState({
-      x: event.clientX - 75 ,
+      x: event.clientX - 75,
       y: event.clientY - 75
-  })
-}
+    })
+  }
 
   render() {
     const { productDetail, items } = this.props
@@ -77,20 +74,25 @@ class ProductDetail extends Component {
             }
           </div>
           <div className='img-selected'>
-            <div className='img-selected-container'onMouseEnter={(event)=>this.toggleHover(event,'enter')} onMouseLeave={(event)=> this.toggleHover(event, 'leave')} >
-              <div onMouseMove={(event)=> this.mouseMove(event)}>
+            <div className='img-selected-container' onMouseEnter={(event) => this.toggleHover(event, 'enter')} onMouseOut={(event) => this.toggleHover(event, 'leave')} onMouseMove={(event) => this.mouseMove(event)}>
               <img src={productDetail.activeImage} alt="selected" ></img>
-              </div>
               {this.state.onHover ?
-                <div onMouseMove={(event)=> this.mouseMove(event)} className='img-zoom' style={{top: this.state.y, left: this.state.x}} >
+                <div className='img-zoom' style={{ top: this.state.y, left: this.state.x }} >
                 </div> : null
               }
             </div>
           </div>
         </div>
         <div className='info-product'>
-          <h1>{productDetail.title}</h1>
-          <p className="price-product">${formatNumber(productDetail.price)}</p>
+          {this.state.onHover ?
+            <div className='img-zoom-container'>
+              <img src={productDetail.activeImage} style={{ top: -this.state.y*2+255, left: -this.state.x*1.6+420 }} alt='product'></img>
+            </div> :
+            <div>
+              <h1>{productDetail.title}</h1>
+              <p className="price-product">${formatNumber(productDetail.price)}</p>
+            </div>
+          }
           <Button
             className="form-button button-label"
             variant="contained"

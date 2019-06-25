@@ -63,7 +63,23 @@
   z-index: 2;
 }
 
-.img-mouse-move{
+.img-selected-container {
+  overflow: hidden;
+}
+
+.img-selected-container * {
+  pointer-events: none;
+}
+
+.img-zoom-container {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
   position: relative;
-  z-index: 5;
+}
+
+.img-zoom-container img {
+  width: 300%;
+  height: 300%;
+  position: absolute;
 }
