@@ -8,7 +8,11 @@ import { formatNumber } from '../../../../../utils/decimalSeparation';
 
 
 class ProductDetail extends Component {
-
+  state = {
+    onHover: false,
+    x: 0,
+    y: 0
+  }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.id);
   }
@@ -24,21 +28,36 @@ class ProductDetail extends Component {
     thumbnail: productDetail.activeImage
   })
 
- 
+
 
   sendToShoppingCart(productDetail, items) {
-
     const transformProduct = this.massageShopping(productDetail);
     const existProduct = items.find(item => item.id === transformProduct.id);
     if (existProduct) {
       if (existProduct.countItems > 18) {
         showErrorAlert('Son 19 productos maximo');
-        return; 
+        return;
       }
     }
     showSuccessProduct('El producto se ha agregado con exito');
     this.props.addItemCart(transformProduct);
   }
+
+  toggleHover = (event,title) => {
+    console.log(title);
+    event.persist();
+    this.setState({
+      onHover: !this.state.onHover
+    })
+  }
+
+  mouseMove = (event, title) => {
+    event.persist();
+    this.setState({
+      x: event.clientX - 75 ,
+      y: event.clientY - 75
+  })
+}
 
   render() {
     const { productDetail, items } = this.props
@@ -58,8 +77,14 @@ class ProductDetail extends Component {
             }
           </div>
           <div className='img-selected'>
-            <div className='img-selected-container'>
-              <img src={productDetail.activeImage} alt="selected"></img>
+            <div className='img-selected-container'onMouseEnter={(event)=>this.toggleHover(event,'enter')} onMouseLeave={(event)=> this.toggleHover(event, 'leave')} >
+              <div onMouseMove={(event)=> this.mouseMove(event)}>
+              <img src={productDetail.activeImage} alt="selected" ></img>
+              </div>
+              {this.state.onHover ?
+                <div onMouseMove={(event)=> this.mouseMove(event)} className='img-zoom' style={{top: this.state.y, left: this.state.x}} >
+                </div> : null
+              }
             </div>
           </div>
         </div>
@@ -71,7 +96,7 @@ class ProductDetail extends Component {
             variant="contained"
             color="primary"
             type="submit"
-            onClick={() => { this.sendToShoppingCart(productDetail, items)}}>
+            onClick={() => { this.sendToShoppingCart(productDetail, items) }}>
             Agregar al carrito
       </Button>
         </div>
