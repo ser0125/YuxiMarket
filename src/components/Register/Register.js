@@ -26,6 +26,7 @@ const Register = (props) => {
       props.history.push('/');
     }
   }
+  
 
   return <React.Fragment>
     <h1 className="form-signin-heading">Registrate en el YuxiMarket</h1>

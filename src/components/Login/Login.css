@@ -7,3 +7,7 @@
 .form-control .error-form {
   border: 1px solid blueviolet;
 }
+
+.button-google-container {
+  margin-top: 20px;
+}

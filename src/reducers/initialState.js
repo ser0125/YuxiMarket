@@ -25,6 +25,7 @@ export default {
   },
   users: {
     data: [],
+    size: 0
   },
   loginUser: {},
   shoppingCart: {
