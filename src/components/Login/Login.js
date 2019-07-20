@@ -23,7 +23,11 @@ const Login = (props) => {
       name: name,
       email: email});
     } 
-    console.log(props);
+    props.loginUser({
+      name: name,
+      email: email
+    })
+    props.history.push('/home');
   }
 
   const responseGoogleFailed = (response) => {

@@ -24,8 +24,7 @@ export default {
     error: null,
   },
   users: {
-    data: [],
-    size: 0
+    data: []
   },
   loginUser: {},
   shoppingCart: {

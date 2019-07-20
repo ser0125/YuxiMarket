@@ -6,8 +6,7 @@ export default (state=initialState.users, action) => {
       case REGISTER_USER:
         return {
           ...state,
-          data: [...state.data, action.payload],
-          size: state.size + 1
+          data: [...state.data, action.payload]
         }
       default:
         return state;
