@@ -27,3 +27,7 @@ To install all the dependencies of the proyect
 
 Runs the app in the development mode.
 
+#### Aditional note
+
+Also you can look the project develop in Heroku!!
+[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge&style=flat)](https://yuxi-market.herokuapp.com/)
